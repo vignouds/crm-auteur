@@ -1,0 +1,58 @@
+# =========================
+# Java / Maven
+# =========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/maven-wrapper-downloader.jar
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# =========================
+# Spring Boot
+# =========================
+application-*.yml
+application-*.yaml
+application-*.properties
+
+# =========================
+# Node / Angular
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# =========================
+# IntelliJ IDEA
+# =========================
+.idea/
+*.iml
+out/
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Docker
+# =========================
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# =========================
+# OS / divers
+# =========================
+.DS_Store
+Thumbs.db

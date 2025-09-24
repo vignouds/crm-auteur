@@ -12,5 +12,18 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
+  backend:
+    build: ./backend/crmauteur
+    container_name: crm_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    ports:
+      - "8080:8080"
+
 volumes:
   db_data:

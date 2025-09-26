@@ -8,12 +8,15 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: uuid
+                  type: BIGSERIAL
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
               - column:
                   name: name
                   type: varchar(255)
+                  constraints:
+                    nullable: false
               - column:
                   name: email
                   type: varchar(255)

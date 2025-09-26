@@ -13,7 +13,7 @@ services:
       - db_data:/var/lib/postgresql/data
 
   backend:
-    build: ./backend/crmauteur
+    build: ./backend
     container_name: crm_backend
     restart: always
     depends_on:

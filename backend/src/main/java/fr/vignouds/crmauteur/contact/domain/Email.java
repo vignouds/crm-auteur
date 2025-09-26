@@ -1,5 +1,8 @@
 package fr.vignouds.crmauteur.contact.domain;
 
+import fr.vignouds.crmauteur.shared.DomainException;
+import fr.vignouds.crmauteur.shared.ErrorCode;
+
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -12,10 +15,10 @@ public class Email {
 
     public Email(String value) {
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("Email cannot be null or empty");
+            throw new DomainException(ErrorCode.INVALID_EMAIL, "L'email ne peut pas être nul ou vide");
         }
         if (!EMAIL_REGEX.matcher(value).matches()) {
-            throw new IllegalArgumentException("Invalid email format: " + value);
+            throw new DomainException(ErrorCode.INVALID_EMAIL, "Format email invalide : " + value);
         }
         this.value = value.toLowerCase().trim(); // normalisation
     }

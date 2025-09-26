@@ -1,5 +1,6 @@
 package fr.vignouds.crmauteur.contact.domain;
 
+import fr.vignouds.crmauteur.shared.DomainException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,19 +15,19 @@ class EmailTest {
 
     @Test
     void shouldRejectInvalidEmail() {
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(DomainException.class,
                 () -> new Email("not-an-email"));
     }
 
     @Test
     void shouldRejectNullEmail() {
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(DomainException.class,
                 () -> new Email(null));
     }
 
     @Test
     void shouldRejectEmptyEmail() {
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(DomainException.class,
                 () -> new Email("   "));
     }
 }

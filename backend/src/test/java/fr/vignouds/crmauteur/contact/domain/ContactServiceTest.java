@@ -1,6 +1,7 @@
 package fr.vignouds.crmauteur.contact.domain;
 
 import fr.vignouds.crmauteur.contact.domain.ports.out.ContactRepository;
+import fr.vignouds.crmauteur.shared.DomainException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +40,7 @@ class ContactServiceTest {
         Email email = new Email("bob@example.com");
         when(repository.findByEmail(email)).thenReturn(Optional.of(new Contact("Bob", email)));
 
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(DomainException.class,
                 () -> service.createContact("Bob", "bob@example.com"));
     }
 }

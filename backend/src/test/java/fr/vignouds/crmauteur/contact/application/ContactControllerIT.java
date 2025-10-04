@@ -22,13 +22,15 @@ class ContactControllerIT extends PostgresTestContainerConfig {
     @Autowired
     private ObjectMapper objectMapper;
 
+    public String contactEndpoint = "/api/contacts";
+
     @Test
     void shouldCreateContact() throws Exception {
         // Given
         var request = new ContactController.CreateContactRequest("Alice", "alice@example.com");
 
         // When + Then
-        mockMvc.perform(post("/api/contacts")
+        mockMvc.perform(post(contactEndpoint)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
@@ -40,10 +42,10 @@ class ContactControllerIT extends PostgresTestContainerConfig {
     void shouldRejectInvalidEmail() throws Exception {
         var request = new ContactController.CreateContactRequest("Bob", "not-an-email");
 
-        mockMvc.perform(post("/api/contacts")
+        mockMvc.perform(post(contactEndpoint)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().is4xxClientError()); // tu pourras affiner à 400 Bad Request
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -51,13 +53,13 @@ class ContactControllerIT extends PostgresTestContainerConfig {
         var request = new ContactController.CreateContactRequest("Bob", "bob@example.com");
 
         // 1er appel → OK
-        mockMvc.perform(post("/api/contacts")
+        mockMvc.perform(post(contactEndpoint)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk());
 
         // 2ème appel avec le même email → doit échouer
-        mockMvc.perform(post("/api/contacts")
+        mockMvc.perform(post(contactEndpoint)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isBadRequest())

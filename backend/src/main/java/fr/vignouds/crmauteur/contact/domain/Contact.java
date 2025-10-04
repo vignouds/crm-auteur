@@ -1,5 +1,8 @@
 package fr.vignouds.crmauteur.contact.domain;
 
+import fr.vignouds.crmauteur.shared.DomainException;
+import fr.vignouds.crmauteur.shared.ErrorCode;
+
 import java.util.Objects;
 
 public class Contact {
@@ -9,10 +12,10 @@ public class Contact {
 
     public Contact(String name, Email email) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
+            throw new DomainException(ErrorCode.INVALID_CONTACT, "Name cannot be null or empty");
         }
         if (email == null) {
-            throw new IllegalArgumentException("Email cannot be null");
+            throw new DomainException(ErrorCode.INVALID_CONTACT, "Email cannot be null");
         }
         this.name = name.trim();
         this.email = email;

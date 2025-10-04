@@ -17,13 +17,13 @@ public class ContactService implements CreateContactUseCase {
 
     @Override
     public Contact createContact(String name, String email) {
-        Email vo = new Email(email);
+        Email emailObj = new Email(email);
 
-        repository.findByEmail(vo).ifPresent(c -> {
+        repository.findByEmail(emailObj).ifPresent(contact -> {
             throw new DomainException(ErrorCode.CONTACT_ALREADY_EXISTS, "Contact déjà existant avec l'email: " + email);
         });
 
-        Contact contact = new Contact(name, vo);
+        Contact contact = new Contact(name, emailObj);
         return repository.save(contact);
     }
 }

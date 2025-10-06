@@ -7,18 +7,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class ContactServiceTest {
+class CreateContactServiceTest {
 
     private ContactRepository repository;
-    private ContactService service;
+    private CreateContactService service;
 
     @BeforeEach
     void setUp() {
         repository = mock(ContactRepository.class);
-        service = new ContactService(repository);
+        service = new CreateContactService(repository);
     }
 
     @Test

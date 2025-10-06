@@ -6,12 +6,14 @@ import fr.vignouds.crmauteur.shared.DomainException;
 import fr.vignouds.crmauteur.shared.ErrorCode;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class ContactService implements CreateContactUseCase {
+public class CreateContactService implements CreateContactUseCase {
 
     private final ContactRepository repository;
 
-    public ContactService(ContactRepository repository) {
+    public CreateContactService(ContactRepository repository) {
         this.repository = repository;
     }
 

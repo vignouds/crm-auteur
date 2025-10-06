@@ -5,6 +5,7 @@ import fr.vignouds.crmauteur.contact.domain.Email;
 import fr.vignouds.crmauteur.contact.domain.ports.out.ContactRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -26,5 +27,10 @@ public class JpaContactRepository implements ContactRepository {
     public Contact save(Contact contact) {
         ContactEntity entity = ContactEntity.fromDomain(contact);
         return jpaRepo.save(entity).toDomain();
+    }
+
+    @Override
+    public List<Contact> getAll() {
+        return jpaRepo.findAll().stream().map(ContactEntity::toDomain).toList();
     }
 }

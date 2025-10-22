@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$crm-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$cyan-palette,
+  )
+));
+
+:root {
+  @include mat.all-component-themes($crm-theme);
+}
+
+body {
+  margin: 0;
+  background-color: var(--mat-app-background-color);
+  color: var(--mat-app-text-color);
+  font-family: var(--mat-app-typography-font-family, Roboto, 'Helvetica Neue', sans-serif);
+}

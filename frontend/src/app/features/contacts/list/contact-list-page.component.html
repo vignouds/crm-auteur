@@ -1,0 +1,27 @@
+<mat-card class="contacts-list-card mat-elevation-z2">
+  <mat-card-content>
+    <div class="contacts-list-card__header">
+      <div>
+        <h1>Contacts</h1>
+        <p class="contacts-list-card__subtitle">Gérez et consultez vos relations en un coup d'œil.</p>
+      </div>
+      <button
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="reload()"
+        [disabled]="isLoading()"
+      >
+        Actualiser
+      </button>
+    </div>
+
+    <app-contact-list-table
+      [contacts]="contacts()"
+      [loading]="isLoading()"
+      [error]="hasError()"
+      [errorMessage]="errorMessage()"
+      (reload)="reload()"
+    ></app-contact-list-table>
+  </mat-card-content>
+</mat-card>

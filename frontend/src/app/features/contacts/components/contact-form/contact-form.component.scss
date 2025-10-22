@@ -1,0 +1,36 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form__alert {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: rgba(244, 67, 54, 0.12);
+  color: rgba(244, 67, 54, 1);
+}
+
+.contact-form__alert-label {
+  font-weight: 600;
+}
+
+.contact-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+button[mat-button],
+button[mat-raised-button] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-form__actions mat-progress-spinner {
+  margin-right: 0.5rem;
+}

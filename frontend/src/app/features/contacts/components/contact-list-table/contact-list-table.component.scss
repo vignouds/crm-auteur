@@ -1,0 +1,49 @@
+.contact-table {
+  display: block;
+}
+
+.contact-table__wrapper {
+  overflow-x: auto;
+}
+
+.contact-table__mat-table {
+  width: 100%;
+  min-width: 28rem;
+}
+
+.contact-table__state {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: rgba(37, 99, 235, 0.08);
+}
+
+.contact-table__state--error {
+  background-color: rgba(244, 67, 54, 0.12);
+}
+
+.contact-table__state--empty {
+  background-color: rgba(76, 175, 80, 0.08);
+}
+
+.contact-table__message {
+  margin: 0;
+}
+
+.contact-table__message--strong {
+  font-weight: 600;
+}
+
+button[mat-stroked-button],
+button[mat-raised-button] {
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+th.mat-mdc-header-cell {
+  font-weight: 600;
+}

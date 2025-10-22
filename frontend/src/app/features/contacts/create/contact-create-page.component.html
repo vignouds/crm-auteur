@@ -1,0 +1,15 @@
+<mat-card class="contact-create-card mat-elevation-z2">
+  <mat-card-header>
+    <mat-card-title>Créer un contact</mat-card-title>
+    <mat-card-subtitle>Renseignez les informations nécessaires pour enrichir votre CRM.</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <app-contact-form
+      [pending]="isSubmitting()"
+      [errorMessage]="submitError()"
+      (submitted)="createContact($event)"
+      (cancelled)="resetForm()"
+    ></app-contact-form>
+  </mat-card-content>
+</mat-card>
